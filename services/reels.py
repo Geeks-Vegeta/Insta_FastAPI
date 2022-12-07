@@ -22,3 +22,17 @@ def upload_reels(username, password, path_data, caption):
 
     except Exception as e:
       print(e)
+    
+
+
+def download_reel(url:str):
+    
+    try:
+      cl = Client()
+      reel_pk=cl.media_pk_from_url(url)
+      reel_path = cl.clip_download(reel_pk)	 
+      return {"message":"reels download"}
+
+
+    except Exception as e:
+      print(e)

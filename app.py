@@ -2,9 +2,7 @@ from typing import Union
 from fastapi import Depends, FastAPI, HTTPException, status
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
-from route import reels_route
-# from routes import nhentai_route, xhamster_route,\
-#     eightmuses_route, porncomics_route, kingcomics_route
+from route import reels_route, video_route, picture_route, igtv_route
 
 
 description = '''
@@ -37,9 +35,9 @@ def home():
     return {"message": "Ok"}
 
 app.include_router(reels_route.route)
-# app.include_router(xhamster_route.route)
-# app.include_router(eightmuses_route.route)
-# app.include_router(porncomics_route.route)
+app.include_router(video_route.route)
+app.include_router(picture_route.route)
+app.include_router(igtv_route.route)
 # app.include_router(kingcomics_route.route)
 
 
